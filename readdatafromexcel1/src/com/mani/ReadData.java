@@ -99,32 +99,25 @@ public class ReadData {
 	         i++;
 		 }
 	      FileOutputStream out = null;
-			JFileChooser jfile = new JFileChooser();
-			int result = jfile.showSaveDialog(null);
-			if(result==JFileChooser.APPROVE_OPTION)
-			{
-				String exepath = jfile.getSelectedFile().getAbsolutePath();
 				try {
+					String exepath = "D://exceldata";
 					if(exepath.endsWith(".xls") || exepath.endsWith(".xlsx"))
 					{
 					out = new FileOutputStream (new File(exepath));
 					workbook.write(out);
 					out.close();
-					JOptionPane.showMessageDialog(null, "Excuted successully");
+					System.out.println("Executed successfully");
 					}else
 					{
 						String bufpath = exepath.concat(".xlsx");
 						out = new FileOutputStream (new File(bufpath));
 						workbook.write(out);
 						out.close();
-
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
 			}
-	}
-
 	}
 
